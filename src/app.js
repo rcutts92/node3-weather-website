@@ -7,6 +7,7 @@ const forecast = require('./utils/forecast.js')
 
 // Variables for express is defined.
 const app = express()
+const port = process.env.PORT || 3000
 
 // Define paths for Express config. FRONTEND RELATED
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -98,7 +99,7 @@ app.get('/weather', (req, res) => {
 })
 
 // Starts up server listening for traffic on port 3000
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
 })
 
