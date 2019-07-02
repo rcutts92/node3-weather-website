@@ -7,7 +7,7 @@ const forecast = require('./utils/forecast.js')
 
 // Variables for express is defined.
 const app = express()
-const port = process.env.PORT || 3000
+const port = 3000
 
 // Define paths for Express config. FRONTEND RELATED
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -56,22 +56,6 @@ app.get('/products', (req, res) => {
     })
 })
 
-app.get('/help/*', (req, res) => {
-    res.render('404', {
-        error: 'Help article not found',
-        name: 'Andrew Mead',
-        title: '404 Error'
-    })
-})
-
-app.get('*', (req, res) => {
-    res.render('404', {
-        error: 'Page not found',
-        name: 'Andrew Mead',
-        title: '404 Error'
-    })
-})
-
 app.get('/weather', (req, res) => {
     if(!req.query.address) {
         return res.send({
@@ -98,8 +82,24 @@ app.get('/weather', (req, res) => {
     })
 })
 
+app.get('/help/*', (req, res) => {
+    res.render('404', {
+        error: 'Help article not found',
+        name: 'Andrew Mead',
+        title: '404 Error'
+    })
+})
+
+app.get('*', (req, res) => {
+    res.render('404', {
+        error: 'Page not found',
+        name: 'Andrew Mead',
+        title: '404 Error'
+    })
+})
+
+
 // Starts up server listening for traffic on port 3000
 app.listen(port, () => {
     console.log('Server is up on port ' + port)
 })
-
