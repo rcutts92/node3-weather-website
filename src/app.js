@@ -98,7 +98,6 @@ app.get('*', (req, res) => {
     })
 })
 
-
 // Starts up server listening for traffic on port 3000
 app.listen(port, () => {
     console.log('Server is up on port ' + port)
