@@ -12,6 +12,7 @@ const forecast = (longitude, latitude, callback) => {
         }else{
             callback(undefined, {
                 forecast: 'The temperature is currently ' + body.currently.temperature + ', and the chance of rain is currently ' + body.currently.precipProbability + '%',
+                cloudCover: 'The cloud cover is currently ' + body.currently.cloudCover + '%'
             })
         }
     })
